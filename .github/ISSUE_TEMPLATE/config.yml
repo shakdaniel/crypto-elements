@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Trademark or takedown request
+    url: https://github.com/shakdaniel/crypto-elements/blob/main/TRADEMARKS.md
+    about: Own one of these marks? Read this, then open an issue titled "Trademark: <brand>".
+  - name: Security vulnerability
+    url: https://github.com/shakdaniel/crypto-elements/security/advisories/new
+    about: Report privately, not as a public issue.

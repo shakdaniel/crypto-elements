@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <g transform="rotate(45 16 16)">
+    <rect data-mono="drop" x="9" y="2.6" width="14" height="26.8" rx="7" fill="#4CE38B"/>
+    <path data-mono="drop" fill="#E8FBF0" d="M9 16h14v6.4a7 7 0 0 1-7 7 7 7 0 0 1-7-7z"/>
+  </g>
+  <path fill="#0D3B26" d="M13.2 12.6h6.1l-1.8-1.8 1.3-1.3 4 4-4 4-1.3-1.3 1.8-1.8h-6.1zm5.6 6.8h-6.1l1.8 1.8-1.3 1.3-4-4 4-4 1.3 1.3-1.8 1.8h6.1z"/>
+</svg>

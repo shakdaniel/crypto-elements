@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"],
+    "paths": { "@crypto-elements/core": ["./packages/core/src/index.ts"] },
+    "baseUrl": "."
+  },
+  "include": ["packages/*/src/**/*", "scripts/**/*", "test/**/*", "site/**/*.mjs"]
+}

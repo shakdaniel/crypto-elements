@@ -1,0 +1,27 @@
+name: Bug report
+description: Something renders wrong, or the API misbehaves
+labels: [bug]
+body:
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      options: ["@crypto-elements/core", "@crypto-elements/react", "docs site", "raw SVGs"]
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: 0.1.0
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Include the icon id, the code you ran, and what you expected instead.
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: A snippet, StackBlitz, or the steps you took.

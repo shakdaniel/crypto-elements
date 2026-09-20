@@ -1,0 +1,126 @@
+{
+  "$schema": "./registry.schema.json",
+  "chain": [
+    {
+      "id": "ETH", "name": "Ethereum", "file": "eth.svg", "symbol": "ETH",
+      "evmChainId": 1, "colors": ["#627EEA", "#8C8C8C"], "website": "https://ethereum.org",
+      "aliases": ["ethereum", "mainnet", "eth-mainnet", "evm"], "fidelity": "official-geometry"
+    },
+    {
+      "id": "SOL", "name": "Solana", "file": "sol.svg", "symbol": "SOL",
+      "colors": ["#9945FF", "#14F195"], "website": "https://solana.com",
+      "aliases": ["solana", "mainnet-beta"], "fidelity": "official-geometry"
+    },
+    {
+      "id": "BASE", "name": "Base", "file": "base.svg", "symbol": "ETH",
+      "evmChainId": 8453, "colors": ["#0052FF"], "website": "https://base.org",
+      "aliases": ["base-mainnet"], "fidelity": "official-geometry"
+    },
+    {
+      "id": "BNB", "name": "BNB Chain", "file": "bnb.svg", "symbol": "BNB",
+      "evmChainId": 56, "colors": ["#F3BA2F"], "website": "https://bnbchain.org",
+      "aliases": ["bsc", "binance", "binance-smart-chain", "bnb-chain"], "fidelity": "official-geometry"
+    },
+    {
+      "id": "ARB", "name": "Arbitrum One", "file": "arb.svg", "symbol": "ETH",
+      "evmChainId": 42161, "colors": ["#213147", "#12AAFF", "#9DCCED"], "website": "https://arbitrum.io",
+      "aliases": ["arbitrum", "arbitrum-one", "arb1"], "fidelity": "approximate"
+    },
+    {
+      "id": "OP", "name": "OP Mainnet", "file": "op.svg", "symbol": "ETH",
+      "evmChainId": 10, "colors": ["#FF0420"], "website": "https://optimism.io",
+      "aliases": ["optimism", "op-mainnet"], "fidelity": "approximate"
+    },
+    {
+      "id": "MATIC", "name": "Polygon", "file": "matic.svg", "symbol": "POL",
+      "evmChainId": 137, "colors": ["#8247E5"], "website": "https://polygon.technology",
+      "aliases": ["polygon", "pol", "matic-mainnet"], "fidelity": "official-geometry"
+    },
+    {
+      "id": "AVAX", "name": "Avalanche", "file": "avax.svg", "symbol": "AVAX",
+      "evmChainId": 43114, "colors": ["#E84142"], "website": "https://avax.network",
+      "aliases": ["avalanche", "avalanche-c-chain", "c-chain"], "fidelity": "official-geometry"
+    },
+    {
+      "id": "HYPE", "name": "Hyperliquid", "file": "hype.svg", "symbol": "HYPE",
+      "evmChainId": 999, "colors": ["#97FCE4", "#072723"], "website": "https://hyperliquid.xyz",
+      "aliases": ["hyperevm", "hyperliquid-l1", "hyperliquid"], "fidelity": "approximate"
+    },
+    {
+      "id": "WETH", "name": "Wrapped Ether", "file": "weth.svg", "symbol": "WETH",
+      "colors": ["#627EEA"], "website": "https://weth.io",
+      "aliases": ["wrapped-eth", "wrapped-ether"], "fidelity": "approximate",
+      "note": "Token, not a chain. Included because it is commonly rendered alongside chain badges."
+    }
+  ],
+  "dex": [
+    {
+      "id": "uniswap", "name": "Uniswap", "file": "uniswap.svg",
+      "colors": ["#FF007A"], "website": "https://uniswap.org",
+      "aliases": ["uni", "uniswap-v2", "uniswap-v3", "uniswap-v4"],
+      "chains": ["ETH", "BASE", "ARB", "OP", "MATIC", "BNB", "AVAX"], "fidelity": "approximate"
+    },
+    {
+      "id": "pancakeswap", "name": "PancakeSwap", "file": "pancakeswap.svg",
+      "colors": ["#633001", "#FEDC90", "#D1884F"], "website": "https://pancakeswap.finance",
+      "aliases": ["cake", "pancake"], "chains": ["BNB", "ETH", "BASE", "ARB"], "fidelity": "approximate"
+    },
+    {
+      "id": "aerodrome", "name": "Aerodrome", "file": "aerodrome.svg",
+      "colors": ["#3C8AFF", "#141C2E"], "website": "https://aerodrome.finance",
+      "aliases": ["aero"], "chains": ["BASE"], "fidelity": "approximate"
+    },
+    {
+      "id": "orca", "name": "Orca", "file": "orca.svg",
+      "colors": ["#FFD15C", "#122232"], "website": "https://orca.so",
+      "aliases": [], "chains": ["SOL"], "fidelity": "approximate"
+    },
+    {
+      "id": "raydium", "name": "Raydium", "file": "raydium.svg",
+      "colors": ["#3A0CF5", "#C200FB"], "website": "https://raydium.io",
+      "aliases": ["ray"], "chains": ["SOL"], "fidelity": "approximate"
+    },
+    {
+      "id": "curve", "name": "Curve", "file": "curve.svg",
+      "colors": ["#F00432", "#FFD400", "#3667F0"], "website": "https://curve.finance",
+      "aliases": ["crv", "curve-finance"],
+      "chains": ["ETH", "ARB", "OP", "MATIC", "BASE", "AVAX"], "fidelity": "approximate"
+    },
+    {
+      "id": "meteora", "name": "Meteora", "file": "meteora.svg",
+      "colors": ["#4E5AE8", "#00D3B0", "#E9FF71"], "website": "https://meteora.ag",
+      "aliases": ["met"], "chains": ["SOL"], "fidelity": "approximate"
+    },
+    {
+      "id": "hyperliquid", "name": "Hyperliquid", "file": "hyperliquid.svg",
+      "colors": ["#97FCE4", "#072723"], "website": "https://hyperliquid.xyz",
+      "aliases": ["hl", "hlp"], "chains": ["HYPE"], "fidelity": "approximate"
+    },
+    {
+      "id": "dydx", "name": "dYdX", "file": "dydx.svg",
+      "colors": ["#6966FF", "#1C1C29"], "website": "https://dydx.exchange",
+      "aliases": ["dydx-v4"], "chains": [], "fidelity": "approximate"
+    },
+    {
+      "id": "jupiter", "name": "Jupiter", "file": "jupiter.svg",
+      "colors": ["#C7F284", "#24C8B0"], "website": "https://jup.ag",
+      "aliases": ["jup"], "chains": ["SOL"], "fidelity": "approximate"
+    },
+    {
+      "id": "pumpswap", "name": "PumpSwap", "file": "pumpswap.svg",
+      "colors": ["#4CE38B"], "website": "https://swap.pump.fun",
+      "aliases": ["pump-swap"], "chains": ["SOL"], "fidelity": "approximate"
+    },
+    {
+      "id": "pumpfun", "name": "Pump.fun", "file": "pumpfun.svg",
+      "colors": ["#4CE38B"], "website": "https://pump.fun",
+      "aliases": ["pump", "pump-fun", "pump.fun"], "chains": ["SOL"], "fidelity": "approximate"
+    },
+    {
+      "id": "1inch", "name": "1inch", "file": "1inch.svg",
+      "colors": ["#1B314F", "#2F8AF5"], "website": "https://1inch.io",
+      "aliases": ["oneinch", "1inch-network"],
+      "chains": ["ETH", "BNB", "ARB", "OP", "MATIC", "AVAX", "BASE"], "fidelity": "approximate"
+    }
+  ]
+}

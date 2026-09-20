@@ -1,0 +1,50 @@
+{
+  "name": "crypto-elements",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Open-source SVG logos and symbols for crypto chains, DEXes and protocols",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shakdaniel/crypto-elements.git"
+  },
+  "homepage": "https://shakdaniel.github.io/crypto-elements",
+  "bugs": {
+    "url": "https://github.com/shakdaniel/crypto-elements/issues"
+  },
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "icons": "node scripts/build-icons.mjs",
+    "build": "npm run icons && npm run build --workspaces --if-present",
+    "build:site": "npm run icons && node site/build.mjs",
+    "dev:site": "npm run build:site && node site/serve.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "lint:icons": "node scripts/lint-icons.mjs",
+    "check": "npm run lint:icons && npm run test && npm run typecheck",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "npm run build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.9",
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "svgo": "^3.3.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  },
+  "packageManager": "npm@11.0.0",
+  "allowScripts": {
+    "esbuild@0.27.7": true
+  }
+}

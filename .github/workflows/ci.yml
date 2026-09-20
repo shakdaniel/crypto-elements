@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - name: Lint icon sources
+        run: npm run lint:icons
+      - name: Build packages
+        run: npm run build
+      - name: Test
+        run: node --test test/*.test.mjs
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Build docs site
+        run: npm run build:site
+
+  no-generated-files-committed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generated output must not be committed
+        run: |
+          if git ls-files --error-unmatch \
+            'packages/*/src/generated.*' 'packages/core/src/ids.ts' 'build/**' >/dev/null 2>&1; then
+            echo "::error::Generated files are committed — they are produced by 'npm run icons'."
+            exit 1
+          fi

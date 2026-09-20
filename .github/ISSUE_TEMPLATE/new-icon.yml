@@ -1,0 +1,40 @@
+name: Request an icon
+description: Ask for a chain, DEX or protocol that isn't in the set yet
+title: "Icon: "
+labels: [icon-request]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Brand name
+      placeholder: Balancer
+    validations: { required: true }
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [chain, dex, other protocol]
+    validations: { required: true }
+  - type: input
+    id: website
+    attributes:
+      label: Official website
+      placeholder: https://balancer.fi
+    validations: { required: true }
+  - type: input
+    id: brandkit
+    attributes:
+      label: Link to the brand kit or official SVG, if you have one
+      description: A link to assets the brand publishes makes this far faster to action.
+  - type: input
+    id: aliases
+    attributes:
+      label: Aliases people might search for
+      placeholder: bal, balancer-v3
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before you submit
+      options:
+        - label: I checked the existing icons at https://shakdaniel.github.io/crypto-elements
+          required: true
