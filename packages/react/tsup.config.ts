@@ -7,6 +7,6 @@ export default defineConfig({
   clean: true,
   treeshake: true,
   sourcemap: true,
-  external: ['react', '@crypto-elements/core'],
+  external: ['react', '@shakdaniel/core'],
   outExtension: ({ format }) => ({ js: format === 'cjs' ? '.cjs' : '.js' }),
 })

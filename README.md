@@ -7,8 +7,8 @@
 Chains, DEXes and protocols as real code — typed, tree-shakeable, `currentColor`-ready.
 
 [![CI](https://github.com/shakdaniel/crypto-elements/actions/workflows/ci.yml/badge.svg)](https://github.com/shakdaniel/crypto-elements/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/@crypto-elements/core?label=%40crypto-elements%2Fcore)](https://www.npmjs.com/package/@crypto-elements/core)
-[![npm](https://img.shields.io/npm/v/@crypto-elements/react?label=%40crypto-elements%2Freact)](https://www.npmjs.com/package/@crypto-elements/react)
+[![npm](https://img.shields.io/npm/v/@shakdaniel/core?label=%40shakdaniel%2Fcore)](https://www.npmjs.com/package/@shakdaniel/core)
+[![npm](https://img.shields.io/npm/v/@shakdaniel/react?label=%40shakdaniel%2Freact)](https://www.npmjs.com/package/@shakdaniel/react)
 [![licence](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
 
 [Browse the icons →](https://shakdaniel.github.io/crypto-elements)
@@ -20,16 +20,16 @@ Chains, DEXes and protocols as real code — typed, tree-shakeable, `currentColo
 ## Install
 
 ```bash
-npm  i   @crypto-elements/react   # or @crypto-elements/core
-pnpm add @crypto-elements/react
-yarn add @crypto-elements/react
-bun  add @crypto-elements/react
+npm  i   @shakdaniel/react   # or @shakdaniel/core
+pnpm add @shakdaniel/react
+yarn add @shakdaniel/react
+bun  add @shakdaniel/react
 ```
 
 | Package | What it is |
 | --- | --- |
-| [`@crypto-elements/core`](packages/core) | Icon data + `toSvg()` / `toDataUri()`. No dependencies, works anywhere. |
-| [`@crypto-elements/react`](packages/react) | One React component per icon, plus dynamic `<CryptoIcon id>`. |
+| [`@shakdaniel/core`](packages/core) | Icon data + `toSvg()` / `toDataUri()`. No dependencies, works anywhere. |
+| [`@shakdaniel/react`](packages/react) | One React component per icon, plus dynamic `<CryptoIcon id>`. |
 
 Not using a bundler? Every icon is also served as a plain file:
 
@@ -44,7 +44,7 @@ https://shakdaniel.github.io/crypto-elements/icons.json
 ### React
 
 ```tsx
-import { UniswapIcon, EthIcon, ChainIcon, DexIcon } from '@crypto-elements/react'
+import { UniswapIcon, EthIcon, ChainIcon, DexIcon } from '@shakdaniel/react'
 
 <UniswapIcon size={32} />                       // full colour
 <EthIcon size={20} mono className="text-zinc-400" />  // inherits currentColor
@@ -58,7 +58,7 @@ Named components tree-shake — importing `UniswapIcon` pulls in one icon, not t
 ### Anywhere else
 
 ```ts
-import { toSvg, toDataUri, getIcon, icons, searchIcons } from '@crypto-elements/core'
+import { toSvg, toDataUri, getIcon, icons, searchIcons } from '@shakdaniel/core'
 
 el.innerHTML = toSvg('pumpfun', { size: 28, title: 'Pump.fun' })
 el.style.backgroundImage = `url("${toDataUri('SOL', { size: 20 })}")`

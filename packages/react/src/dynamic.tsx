@@ -1,6 +1,6 @@
 import { createElement, forwardRef } from 'react'
-import { getIcon } from '@crypto-elements/core'
-import type { ChainId, DexId, IconId, IconType } from '@crypto-elements/core'
+import { getIcon } from '@shakdaniel/core'
+import type { ChainId, DexId, IconId, IconType } from '@shakdaniel/core'
 import { createIcon } from './create-icon'
 import type { IconProps } from './create-icon'
 

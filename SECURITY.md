@@ -3,7 +3,7 @@
 ## Scope
 
 These packages ship static SVG markup and metadata. The realistic risk is markup injected into
-an icon that ends up inlined in a consumer's DOM — `@crypto-elements/react` renders icon bodies
+an icon that ends up inlined in a consumer's DOM — `@shakdaniel/react` renders icon bodies
 with `dangerouslySetInnerHTML`, and `toSvg()` returns a raw string.
 
 That is why `npm run lint:icons` rejects `<script>`, `<image>`, `<foreignObject>`, inline `on*`

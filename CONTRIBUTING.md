@@ -85,5 +85,5 @@ takedowns without argument.
 ## Code style
 
 - Two spaces, no semicolons in TypeScript, single quotes.
-- Keep `@crypto-elements/core` dependency-free. That's the point of it.
+- Keep `@shakdaniel/core` dependency-free. That's the point of it.
 - Public API changes need a test in `test/` and a note in the README.

@@ -1,5 +1,5 @@
 {
-  "name": "@crypto-elements/core",
+  "name": "@shakdaniel/core",
   "version": "0.1.0",
   "description": "Framework-agnostic SVG logos for crypto chains, DEXes and protocols",
   "keywords": ["crypto", "icons", "logos", "svg", "defi", "dex", "blockchain", "ethereum", "solana"],

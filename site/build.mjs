@@ -165,10 +165,10 @@ const html = `<!doctype html>
       <h1>Crypto logos that ship<br>as code, not PNGs.</h1>
       <p class="lede">${manifest.count} MIT-licensed SVG marks for ${chains} chains and ${dexes} DEXes — a framework-agnostic core, typed React components, colour and <code>currentColor</code> variants, and a plain <code>/svg</code> folder you can hotlink.</p>
       <div class="install">
-        <code data-copy="npm i @crypto-elements/react">npm i @crypto-elements/react</code>
-        <code data-copy="pnpm add @crypto-elements/react">pnpm add @crypto-elements/react</code>
-        <code data-copy="yarn add @crypto-elements/react">yarn add @crypto-elements/react</code>
-        <code data-copy="bun add @crypto-elements/react">bun add @crypto-elements/react</code>
+        <code data-copy="npm i @shakdaniel/react">npm i @shakdaniel/react</code>
+        <code data-copy="pnpm add @shakdaniel/react">pnpm add @shakdaniel/react</code>
+        <code data-copy="yarn add @shakdaniel/react">yarn add @shakdaniel/react</code>
+        <code data-copy="bun add @shakdaniel/react">bun add @shakdaniel/react</code>
       </div>
     </div>
   </div>
@@ -286,7 +286,7 @@ function openSheet(card) {
 
   const snippets = [
     ['React', '<' + icon.component + ' size={24} />'],
-    ['Import', "import { " + icon.component + " } from '@crypto-elements/react'"],
+    ['Import', "import { " + icon.component + " } from '@shakdaniel/react'"],
     ['Core', "toSvg('" + icon.id + "', { size: 24 })"],
     ['SVG', svg],
     ['URL', location.origin + location.pathname.replace(/[^/]*$/, '') + 'svg/' + icon.type + '/' + icon.id.toLowerCase() + '.svg'],
