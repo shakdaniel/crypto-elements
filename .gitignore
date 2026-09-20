@@ -4,3 +4,8 @@ build/
 site/dist/
 *.tsbuildinfo
 .DS_Store
+
+# Generated from icons/ by scripts/build-icons.mjs
+packages/core/src/generated.ts
+packages/core/src/ids.ts
+packages/react/src/generated.tsx
