@@ -232,7 +232,8 @@ await write(
   'build/icons.json',
   JSON.stringify(
     {
-      version: JSON.parse(await read('package.json')).version,
+      // The root package is private and never versioned — report what's on npm.
+      version: JSON.parse(await read('packages/core/package.json')).version,
       count: icons.length,
       icons: icons.map(({ body, mono, exportName, componentName, ...rest }) => ({
         ...rest,

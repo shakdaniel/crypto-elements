@@ -4,8 +4,13 @@ updates:
     directory: /
     schedule: { interval: monthly }
     groups:
+      # Batch the safe updates. Majors are left ungrouped so each arrives as its
+      # own PR — one breaking bump (e.g. a TypeScript major) can't block the rest.
       dev-dependencies:
-        patterns: ["*"]
+        update-types: [minor, patch]
   - package-ecosystem: github-actions
     directory: /
     schedule: { interval: monthly }
+    groups:
+      actions:
+        update-types: [minor, patch]
