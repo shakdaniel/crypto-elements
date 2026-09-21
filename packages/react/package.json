@@ -1,6 +1,6 @@
 {
   "name": "@crypto-elements/react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React components for crypto chain, DEX and protocol logos",
   "keywords": [
     "react",
@@ -45,7 +45,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@crypto-elements/core": "^0.1.0"
+    "@crypto-elements/core": "^0.1.1"
   },
   "peerDependencies": {
     "react": ">=17"
