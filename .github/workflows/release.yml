@@ -3,6 +3,7 @@ name: Release
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -29,6 +30,21 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: npm ci
       - run: npm run check
+
+      # Publishing has failed silently before: changesets swallows npm's output,
+      # so confirm identity, scope access and what npm would actually upload.
+      - name: Verify npm auth and scope access
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "whoami: $(npm whoami || echo '<<not authenticated>>')"
+          echo "--- orgs ---"
+          npm org ls crypto-elements 2>&1 | head -20 || true
+          echo "--- packages in scope ---"
+          npm access list packages @crypto-elements 2>&1 | head -20 || true
+          echo "--- dry-run publish of core ---"
+          npm publish --dry-run --workspace @crypto-elements/core 2>&1 | tail -25 || true
 
       # Opens/updates a "Version Packages" PR while changesets are pending.
       # Merging that PR runs this job again, and `publish` pushes to npm.
