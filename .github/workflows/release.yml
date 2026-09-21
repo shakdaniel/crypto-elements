@@ -43,8 +43,18 @@ jobs:
           npm org ls crypto-elements 2>&1 | head -20 || true
           echo "--- packages in scope ---"
           npm access list packages @crypto-elements 2>&1 | head -20 || true
-          echo "--- dry-run publish of core ---"
-          npm publish --dry-run --workspace @crypto-elements/core 2>&1 | tail -25 || true
+          echo "--- visibility ---"
+          for pkg in @crypto-elements/core @crypto-elements/react; do
+            status=$(npm access get status "$pkg" 2>&1 || echo "unknown")
+            echo "$pkg: $status"
+            case "$status" in
+              *restricted*)
+                echo "  -> publishing scope is meant to be public; setting public"
+                npm access set status=public "$pkg" 2>&1 | head -5
+                echo "  -> now: $(npm access get status "$pkg" 2>&1)"
+                ;;
+            esac
+          done
 
       # Opens/updates a "Version Packages" PR while changesets are pending.
       # Merging that PR runs this job again, and `publish` pushes to npm.
