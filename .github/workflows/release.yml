@@ -55,17 +55,22 @@ jobs:
 
       # changesets reports success from its own bookkeeping, not from what npm serves.
       # Check each package it claims to have published, without credentials.
+      #
+      # npm commits a publish asynchronously: in the 0.1.1 release core appeared ~70s
+      # and react ~2min after changesets reported success. Allow 10 minutes before
+      # calling it a failure; a restricted publish never appears, so it still fails.
       - name: Verify published packages are public
         if: steps.changesets.outputs.published == 'true'
+        timeout-minutes: 12
         env:
           PUBLISHED: ${{ steps.changesets.outputs.publishedPackages }}
         run: |
           while read -r name version; do
             url="https://registry.npmjs.org/${name/\//%2F}/$version"
-            for attempt in 1 2 3 4 5 6; do
-              code=$(curl -s -o /dev/null -w '%{http_code}' "$url")
+            for attempt in $(seq 1 40); do
+              code=$(curl -s -o /dev/null -w '%{http_code}' -H 'Cache-Control: no-cache' "$url?t=$(date +%s)")
               [ "$code" = 200 ] && break
-              sleep 10
+              sleep 15
             done
             if [ "$code" != 200 ]; then
               echo "::error::$name@$version is not publicly available (HTTP $code). It may have been published restricted — check 'npm access get status $name'."
