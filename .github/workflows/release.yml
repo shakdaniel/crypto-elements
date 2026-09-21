@@ -31,34 +31,11 @@ jobs:
       - run: npm ci
       - run: npm run check
 
-      # Publishing has failed silently before: changesets swallows npm's output,
-      # so confirm identity, scope access and what npm would actually upload.
-      - name: Verify npm auth and scope access
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          echo "whoami: $(npm whoami || echo '<<not authenticated>>')"
-          echo "--- orgs ---"
-          npm org ls crypto-elements 2>&1 | head -20 || true
-          echo "--- packages in scope ---"
-          npm access list packages @crypto-elements 2>&1 | head -20 || true
-          echo "--- visibility ---"
-          for pkg in @crypto-elements/core @crypto-elements/react; do
-            status=$(npm access get status "$pkg" 2>&1 || echo "unknown")
-            echo "$pkg: $status"
-            case "$status" in
-              *restricted*)
-                echo "  -> publishing scope is meant to be public; setting public"
-                npm access set status=public "$pkg" 2>&1 | head -5
-                echo "  -> now: $(npm access get status "$pkg" 2>&1)"
-                ;;
-            esac
-          done
 
       # Opens/updates a "Version Packages" PR while changesets are pending.
       # Merging that PR runs this job again, and `publish` pushes to npm.
       - uses: changesets/action@v1
+        id: changesets
         with:
           version: npm run version-packages
           publish: npm run release
@@ -72,3 +49,27 @@ jobs:
           # OIDC trusted publishing, which no new package has configured.
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # publishConfig.access and .changeset/config.json both say "public", yet the
+          # first release went out restricted. Set it where npm itself reads it.
+          NPM_CONFIG_ACCESS: public
+
+      # changesets reports success from its own bookkeeping, not from what npm serves.
+      # Check each package it claims to have published, without credentials.
+      - name: Verify published packages are public
+        if: steps.changesets.outputs.published == 'true'
+        env:
+          PUBLISHED: ${{ steps.changesets.outputs.publishedPackages }}
+        run: |
+          while read -r name version; do
+            url="https://registry.npmjs.org/${name/\//%2F}/$version"
+            for attempt in 1 2 3 4 5 6; do
+              code=$(curl -s -o /dev/null -w '%{http_code}' "$url")
+              [ "$code" = 200 ] && break
+              sleep 10
+            done
+            if [ "$code" != 200 ]; then
+              echo "::error::$name@$version is not publicly available (HTTP $code). It may have been published restricted — check 'npm access get status $name'."
+              exit 1
+            fi
+            echo "✔ $name@$version is public"
+          done < <(echo "$PUBLISHED" | jq -r '.[] | "\(.name) \(.version)"')
