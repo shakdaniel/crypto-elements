@@ -1,5 +1,11 @@
 # @crypto-elements/core
 
+## 0.1.1
+
+### Patch Changes
+
+- fb165ff: Full READMEs on npm: rendering, lookup, metadata, tree-shaking and type examples for core; props table, dynamic ids and fallbacks for React.
+
 ## 0.1.0
 
 ### Minor Changes

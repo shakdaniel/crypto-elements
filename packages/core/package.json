@@ -1,6 +1,6 @@
 {
   "name": "@crypto-elements/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Framework-agnostic SVG logos for crypto chains, DEXes and protocols",
   "keywords": [
     "crypto",
