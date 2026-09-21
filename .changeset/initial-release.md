@@ -1,6 +1,6 @@
 ---
-"@shakdaniel/core": minor
-"@shakdaniel/react": minor
+"@crypto-elements/core": minor
+"@crypto-elements/react": minor
 ---
 
 First release: 23 icons covering 10 chains (ETH, SOL, BASE, BNB, ARB, OP, MATIC, AVAX, HYPE, WETH)

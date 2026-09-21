@@ -1,6 +1,6 @@
 import { createElement, forwardRef } from 'react'
 import type { ComponentPropsWithoutRef, ForwardRefExoticComponent, RefAttributes } from 'react'
-import type { IconData } from '@shakdaniel/core'
+import type { IconData } from '@crypto-elements/core'
 
 export interface IconProps extends Omit<ComponentPropsWithoutRef<'svg'>, 'children'> {
   /** Width and height. Numbers are pixels. Defaults to `24`. */

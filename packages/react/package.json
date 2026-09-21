@@ -1,5 +1,5 @@
 {
-  "name": "@shakdaniel/react",
+  "name": "@crypto-elements/react",
   "version": "0.0.0",
   "description": "React components for crypto chain, DEX and protocol logos",
   "keywords": ["react", "crypto", "icons", "logos", "svg", "defi", "dex", "blockchain"],
@@ -21,7 +21,7 @@
     "build": "tsup",
     "clean": "rm -rf dist"
   },
-  "dependencies": { "@shakdaniel/core": "^0.0.0" },
+  "dependencies": { "@crypto-elements/core": "^0.0.0" },
   "peerDependencies": { "react": ">=17" },
   "devDependencies": {
     "@types/react": "^18.3.12",

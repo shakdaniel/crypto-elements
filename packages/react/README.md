@@ -1,13 +1,13 @@
-# @shakdaniel/react
+# @crypto-elements/react
 
 React components for crypto chain, DEX and protocol logos.
 
 ```bash
-npm i @shakdaniel/react
+npm i @crypto-elements/react
 ```
 
 ```tsx
-import { UniswapIcon, EthIcon, ChainIcon } from '@shakdaniel/react'
+import { UniswapIcon, EthIcon, ChainIcon } from '@crypto-elements/react'
 
 <UniswapIcon size={32} />
 <EthIcon size={20} mono className="text-zinc-500" />
