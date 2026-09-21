@@ -41,4 +41,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
+          # NODE_AUTH_TOKEN is what setup-node writes into .npmrc; NPM_TOKEN is what
+          # changesets/action looks for. Without the latter it silently falls back to
+          # OIDC trusted publishing, which no new package has configured.
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
